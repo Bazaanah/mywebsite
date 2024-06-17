@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+.carousel {
+ position: relative;
+ display: flex;
+ overflow: hidden;
+ width: 300%;
+ height: 400px;
+}
+
+.carousel img {
+ display: block;
+ width: 25%;
+ height: 400px;
+ padding: 5px;
+ object-fit: cover;
+}
+</style>
+<body>
+    <div class="carousel">
+        <img src="img/footer-img1.jpeg" alt="Image 1">
+        <img src="img/footer-img2.jpeg" alt="Image 2">
+        <img src="img/footer-img3.jpeg" alt="Image 3">
+        <img src="img/footer-img1.jpeg" alt="Image 4">
+        <img src="img/footer-img5.jpeg" alt="Image 5">
+        <img src="img/footer-img2.jpeg" alt="Image 6">
+        <img src="img/footer-img3.jpeg" alt="Image 7">
+        <img src="img/footer-img1.jpeg" alt="Image 8">
+        <img src="img/footer-img5.jpeg" alt="Image 9">
+        <img src="img/footer-img2.jpeg" alt="Image 10">
+        <img src="img/footer-img5.jpeg" alt="Image 11">
+        <img src="img/footer-img2.jpeg" alt="Image 12">
+       </div>
+       
+       <script>
+        let index = 0;
+            let images = document.querySelectorAll('.carousel img');
+
+            function changeImage() {
+            for (let i = 0; i < images.length; i++) {
+                images[i].style.transform = `translateX(-${index * (100 / images.length)}%)`;
+            }
+
+            index++;
+            
+            if (index >= images.length) {
+                index = 0;
+            }
+            }
+
+            setInterval(changeImage, 1000); // Change image every 5 seconds
+       </script>
+</body>
+</html>

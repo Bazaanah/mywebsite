@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Fake Typing Effect</title>
+ <style>
+    .cursor {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: black;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
+ </style>
+</head>
+<body>
+    <h1>I'm a <p id="typing"></p></h1>
+ 
+ <script>
+    // Add your JavaScript code here
+    let i = 0;
+    let text = 'Programmer';
+    let speed = 100;
+
+    function type() {
+    if (i < text.length) {
+        document.getElementById('typing').innerText += text.charAt(i);
+        i++;
+        setTimeout(type, speed);
+    } else {
+        // Start typing back after a delay
+        setTimeout(function() {
+        erase();
+        }, 2000);
+    }
+    }
+
+    function erase() {
+    if (i > 0) {
+        document.getElementById('typing').innerText = text.substring(0, i - 1);
+        i--;
+        setTimeout(erase, speed);
+    } else {
+        // Start typing a different word after a delay
+        setTimeout(function() {
+        type();
+        }, 2000);
+    }
+    }
+
+    type();
+ </script>
+</body>
+</html>
